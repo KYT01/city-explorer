@@ -18,8 +18,8 @@ function App() {
       event.target.input.value = "";
 
       const API = `https://eu1.locationiq.com/v1/search?key=${process.env.REACT_APP_API_KEY}&q=${searchQuery}&format=json`;
+      
       const res = await axios.get(API);
-      console.log(res.data[0]);
       setLocation(res.data[0]);
       handleMap(res.data[0]);
     } catch (error) {
@@ -27,14 +27,12 @@ function App() {
     }
   }
 
-  function handleMap(data) {
- 
+  function handleMap(data) { 
+    
     const API = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_API_KEY}&center=${data.lat},${data.lon}&zoom=9`;
-   
+    
     setMap(API);
   }
-
-
 
   return (
     <div className="App">
