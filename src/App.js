@@ -9,9 +9,7 @@ function App() {
   const [map, setMap] = useState("");
 
   function handleSearch(event) {
-  
     setSearchQuery(event.target.value);
-    console.log(searchQuery);
   }
 
   async function getLocation(event) {
